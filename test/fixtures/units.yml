@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asset_id: MyString
+  size: 1
+  is_rented: false
+  rent: 1
+  unit_type: 1
+  tenant: MyString
+  lease_start: 2019-05-04 17:00:58
+  lease_end: 2019-05-04 17:00:58
+  unit_ref: MyString
+
+two:
+  asset_id: MyString
+  size: 1
+  is_rented: false
+  rent: 1
+  unit_type: 1
+  tenant: MyString
+  lease_start: 2019-05-04 17:00:58
+  lease_end: 2019-05-04 17:00:58
+  unit_ref: MyString
