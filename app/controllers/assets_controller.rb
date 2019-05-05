@@ -31,6 +31,7 @@ class AssetsController < ApplicationController
 
   def upload_csv_file
     begin
+      Asset.import(params[:file])
       #rake import_units_20190101_csv:create_or_update_db
       render status: :ok , json: {message: "File uploaded successfully"}
     rescue Exception => e
