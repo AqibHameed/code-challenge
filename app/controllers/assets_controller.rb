@@ -4,7 +4,6 @@ class AssetsController < ApplicationController
   def index
     begin
       @assets = Asset.sort_by_latest_update
-
       render status: :ok, template: "assets/index.json.jbuilder"
     rescue Exception => e
       render status: :unprocessable_entity, json: {errors: e.message}

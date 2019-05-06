@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'roo'
 gem 'jbuilder', '~> 2.5'
 gem 'rack-cors', require: 'rack/cors'
+gem 'faker'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -32,10 +33,26 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+group :test do
+  gem 'capybara'
+  gem 'minitest'
+  gem 'spring-commands-rspec'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'rspec-activemodel-mocks'
+  gem 'rails-controller-testing'
+  gem 'simplecov'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
+  gem 'spring'
+  gem 'waiting_rspec_matchers'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
