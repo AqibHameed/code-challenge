@@ -17,5 +17,13 @@ RSpec.describe AssetsController, type: :controller do
         expect(JSON.parse(response.body).first['address']).to eq(@asset.address)
       end
     end
+
+    context "when user upload the csv file" do
+      it "can upload a license" do
+        @file = fixture_file_upload('files/units_20190101.csv', 'text/csv')
+        post :upload_csv_file, params: {file: @file}
+        expect(JSON.parse(response.body)['message']).to eq("File uploaded successfully")
+      end
+    end
   end
 end
