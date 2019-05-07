@@ -26,7 +26,7 @@ class Asset < ApplicationRecord
   end
 
   def calculate_walt(total_area)
-    units = self.units.where.not(tenant: nil, lease_start: nil, lease_end: nil).group(:tenant)
+    units = self.units.where.not(tenant: nil, lease_start: nil, lease_end: nil).where(is_rented: true).group(:tenant)
     total_occupy_area_by_tenants = units.sum(:size)
     walt_sum = 0
     total_occupy_area_by_tenants.each do |tenant, tenant_occupy_area|
@@ -37,7 +37,7 @@ class Asset < ApplicationRecord
       tenant_occupy_percentage = (((tenant_occupy_area.to_f/total_area)* 100).to_i).to_f/100
       walt_sum += tenant_occupy_percentage * lease_expires
     end
-    walt_sum
+    '%.1f' % walt_sum
   end
 
   def self.import(file)
